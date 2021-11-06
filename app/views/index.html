@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta Charest="utf-8">
+    <title>Dictée Magique</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <script src="lib/mustache/mustache.js"></script>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/popper/popper.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="javaScript/javascript.js"></script>
+</head>
+
+<body onload="init()">
+    <header>
+        <br>
+        <div class="container">
+            <h3 align="center">Ma dictée Magique</h3>
+            <div  class="container" id="target">Loading...</div>
+            <script id="template" type="x-tmpl-mustache">
+            <br>
+            <center>
+                <audio controls="controls" autoplay>
+                    <source src= "{{url}}" type="audio/mp3" />
+                </audio>
+            </center>
+            <br>
+            </script>
+        </div>
+    </header>
+    <section>
+        <div class="container col-md-6">
+            <div class="form-group">
+                <label for="mot">Saisir le mot</label>
+                <input type="text" id="monMot" class="form-control">
+            </div>
+            <div class="form-group" hidden>
+                <label for="selectMot">mot caché</label>
+                <input id="selectMot" type="text" class="form-control">
+            </div>
+            <center>
+                <button id="valide" type="submit" class="btn btn-success" onclick="valider()" align="center">Valider</button>
+                <button id="effacer" type="submit" class="btn btn-danger" onclick="effacer()" align="center">Effacer</button>
+            </center>
+            <div id="lettre">
+                <p>Lettres spéciales</p>
+                <button class="btn btn-primary" onclick="lettre('é')" >é</button>
+                <button class="btn btn-primary" onclick="lettre('è')" >è</button>
+                <button class="btn btn-primary" onclick="lettre('ap')" >'</button>
+                <button class="btn btn-primary" onclick="lettre('â')" >â</button>
+            </div>
+        </div>
+        <div class="container col-md-8">
+            <br>
+            <div id="exact" class="alert alert-success" role="alert">
+                <p align="center">CORRECT</p>
+            </div>
+            <div id="erreur" class="alert alert-danger" role="alert" align="center">
+            </div>
+            <br>
+            <center>
+                <button id="new" type="button" class="btn btn-primary" onclick="init()">Nouveau mot</button>
+            </center>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <br>
+            <p align="right">
+                <i>Créé par mayska</i>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
